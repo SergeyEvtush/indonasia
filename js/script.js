@@ -1,15 +1,13 @@
 
 
 import  scroll  from "./scroll.js";
+import view from "./viewScroll.js";
 
 const searchingParent=document.querySelector('.header__serch'),
       searchingInput=searchingParent.querySelector('.search'),
-      searchingTitle=document.querySelector('.header__serch h3'),
       readMore=document.querySelectorAll('.link-title'),
       paragraphDescription=document.querySelectorAll('.paragraph-description'),
-       height=document.documentElement.clientHeight,
-       nusaTenggara=document.querySelector('.nusa-tenggara');
-            console.log(height);
+      menuLink=document.querySelectorAll('.list-link');
       const arrText=[];
 
       paragraphDescription.forEach(el=>{
@@ -44,6 +42,17 @@ readMore.forEach((el)=>{
             }      
       });
 });
+menuLink.forEach((el)=>{
+      let a=el.innerHTML;
+      view.addDataAttrToLink(el,a.split(' ').join('').toLowerCase());
+      });
+menuLink.forEach((el)=>{     
+      el.addEventListener('click',(e)=>{
+            e.preventDefault();
+            console.log("."+el.getAttribute("data-goto"));
+            scroll.scrollToElement("."+el.getAttribute("data-goto"));
+      });
+});
 
 function sliceText(text,textLength){
 
@@ -76,3 +85,4 @@ function findSection(el){
                   return findSection(str);
             }
 }
+
