@@ -7,7 +7,10 @@ const searchingParent=document.querySelector('.header__serch'),
       searchingInput=searchingParent.querySelector('.search'),
       readMore=document.querySelectorAll('.link-title'),
       paragraphDescription=document.querySelectorAll('.paragraph-description'),
-      menuLink=document.querySelectorAll('.list-link');
+      menuLink=document.querySelectorAll('.list-link'),
+      body=document.querySelector('body'),
+      burger=document.querySelector('.burger__span'),
+      navigation=document.querySelector('.nav');
       const arrText=[];
 
       paragraphDescription.forEach(el=>{
@@ -42,14 +45,20 @@ readMore.forEach((el)=>{
             }      
       });
 });
+//добавил data атрибут из объекта во viewScroll
 menuLink.forEach((el)=>{
       let a=el.innerHTML;
       view.addDataAttrToLink(el,a.split(' ').join('').toLowerCase());
       });
+//добавил скролл к ссылкам в header ,цели скрола взял из data атрибутов и добавил к ним точку
 menuLink.forEach((el)=>{     
       el.addEventListener('click',(e)=>{
             e.preventDefault();
-            console.log("."+el.getAttribute("data-goto"));
+            if(body.classList.contains('body-lock')&&navigation.classList.contains('active')&&burger.classList.contains('active')){
+                  burger.classList.remove('active');
+                  navigation.classList.remove('active');
+                  body.classList.remove('body-lock');
+            }
             scroll.scrollToElement("."+el.getAttribute("data-goto"));
       });
 });

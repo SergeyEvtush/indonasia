@@ -11,7 +11,7 @@ export default{
       console.log(scrollToElement);
       },
       scrollingObjects:[
-            {Information:"footer"},
+            {Information:"Footer"},
             {aboutUs:"bromo"},
             {culture:"indonasian-culture"},
       ]
