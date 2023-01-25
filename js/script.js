@@ -2,6 +2,7 @@
 
 import  scroll  from "./scroll.js";
 import view from "./viewScroll.js";
+import Header from "./header.js";
 
 const searchingParent=document.querySelector('.header__serch'),
       searchingInput=searchingParent.querySelector('.search'),
@@ -94,4 +95,10 @@ function findSection(el){
                   return findSection(str);
             }
 }
+
+/* const header=Header;
+const thisHeader=new header(100,60,"absolute",999,0,0,'gggg','.wraper',`<div class="header__wraper"></div>`);
+const wraper=document.querySelector('.wraper');
+thisHeader.appendElemToParent();
+thisHeader.appendElemToHeader(0); */
 
