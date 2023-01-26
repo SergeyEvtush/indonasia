@@ -5,13 +5,18 @@ import view from "./viewScroll.js";
 
 
 const searchingParent=document.querySelector('.header__serch'),
-      /* searchingInput=searchingParent.querySelector('.search'), */
+      searchingInput=searchingParent.querySelector('.search'),
       readMore=document.querySelectorAll('.link-title'),
       paragraphDescription=document.querySelectorAll('.paragraph-description'),
       menuLink=document.querySelectorAll('.list-link'),
       body=document.querySelector('body'),
       burger=document.querySelector('.burger__span'),
-      navigation=document.querySelector('.nav');
+      navigation=document.querySelector('.nav'),
+       menu=document.querySelector('.menu');
+
+
+
+
       const arrText=[];
 
       paragraphDescription.forEach(el=>{
@@ -22,9 +27,9 @@ const searchingParent=document.querySelector('.header__serch'),
             
        });
       
-/*    searchingParent.addEventListener('click',(e)=>{
+   searchingParent.addEventListener('click',(e)=>{
          searchingInput.focus();
-}); */
+});
 readMore.forEach((el)=>{
       el.addEventListener('click',(e)=>{
             e.preventDefault();
@@ -96,8 +101,7 @@ function findSection(el){
             }
 }
 
-
-/* menu.addEventListener('click',(e)=>{
+menu.addEventListener('click',(e)=>{
       const target=e.target;
      menuLink.forEach((link)=>{
       if(target==link){
@@ -111,4 +115,4 @@ function findSection(el){
 
          }
       }
-}); */
+});
