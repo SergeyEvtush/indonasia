@@ -2,10 +2,10 @@
 
 import  scroll  from "./scroll.js";
 import view from "./viewScroll.js";
-import Header from "./header.js";
+
 
 const searchingParent=document.querySelector('.header__serch'),
-      searchingInput=searchingParent.querySelector('.search'),
+      /* searchingInput=searchingParent.querySelector('.search'), */
       readMore=document.querySelectorAll('.link-title'),
       paragraphDescription=document.querySelectorAll('.paragraph-description'),
       menuLink=document.querySelectorAll('.list-link'),
@@ -22,9 +22,9 @@ const searchingParent=document.querySelector('.header__serch'),
             
        });
       
-   searchingParent.addEventListener('click',(e)=>{
+/*    searchingParent.addEventListener('click',(e)=>{
          searchingInput.focus();
-});
+}); */
 readMore.forEach((el)=>{
       el.addEventListener('click',(e)=>{
             e.preventDefault();
@@ -96,9 +96,19 @@ function findSection(el){
             }
 }
 
-/* const header=Header;
-const thisHeader=new header(100,60,"absolute",999,0,0,'gggg','.wraper',`<div class="header__wraper"></div>`);
-const wraper=document.querySelector('.wraper');
-thisHeader.appendElemToParent();
-thisHeader.appendElemToHeader(0); */
 
+/* menu.addEventListener('click',(e)=>{
+      const target=e.target;
+     menuLink.forEach((link)=>{
+      if(target==link){
+      }
+     });
+      if(document.documentElement.clientWidth<=1000){
+         if(target==burger){
+            burger.classList.toggle('active');
+            navigation.classList.toggle('active');
+            body.classList.toggle('body-lock');
+
+         }
+      }
+}); */
