@@ -3,6 +3,7 @@
 import model from "../model/Element.js";
 import link from "../model/Link.js";
 import Burger from "../model/burger.js";
+import Input from "../model/Input.js";
 
 
 
@@ -15,15 +16,18 @@ import Burger from "../model/burger.js";
     const Element=model;
     const scrollingLink=link;
     
-    const headerSerch=new Element('div','header__serch','header__wraper');
+    export const headerSerch=new Element('div','header__serch','header__wraper');
           headerSerch.appenedMoreClass();
-          headerSerch.child=`
-        <svg class="sprite-search">
-        <use xlink:href="icons/sprite.svg#search">
-        </svg>
-        <h3>Search</h3>
-          <input type="text" class="search" >`;
-          headerSerch.appendChilds();
+    export const search=new Input('input','search','header__serch');
+                 search.appenedMoreClass();
+                 search.attribute=['type','text'];
+                 search.setAttributeToElem();
+            const iconSearch=new Element('svg',"sprite-search",'header__serch'); 
+                  iconSearch.child=`<use xlink:href="icons/sprite.svg#search">`;
+                  iconSearch.appendChilds();
+                  iconSearch.appenedMoreClass();         
+                  headerSerch.child=[search,iconSearch];
+                  headerSerch.appendChilds();
      
 
     export const ul=new Element('ul',['menu__ul','list']);

@@ -14,15 +14,15 @@ class Element{
   appendChilds(){
    if(!Array.isArray(this.child)){
       if(this.child!=null&&typeof(this.child)==='object'){
-      
+            
          this.elem.append(this.child.elem);
       }else{
          this.elem.insertAdjacentHTML('afterbegin',this.child);
       }
    }else{
       this.child.forEach(el=>{
+            this.elem.append(el.elem);
          
-         this.elem.append(el.elem);
       });
    }
   
