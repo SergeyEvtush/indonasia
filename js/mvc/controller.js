@@ -1,5 +1,5 @@
 
-import {liArr,burger} from "./view/header.js";
+import {liArr,burger,headerSerch,search} from "./view/header.js";
 
 liArr.forEach((el)=>{
    el.elem.addEventListener('click',(e)=>{
@@ -19,4 +19,7 @@ burger.elem.addEventListener('click',(e)=>{
          burger.removeClass();
       });
    });
+});
+headerSerch.elem.addEventListener('click',()=>{
+   search.focusToElement();
 });

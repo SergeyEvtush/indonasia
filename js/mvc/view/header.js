@@ -4,36 +4,40 @@ import model from "../model/Element.js";
 import link from "../model/Link.js";
 import Burger from "../model/burger.js";
 import Input from "../model/Input.js";
+import ElInContainer from "../model/elInContainer.js";
 
+const obj=new ElInContainer('div','header','wraper','',null,[],'testtest','div');
 
+ console.log(obj);
 
- const scrollingObjects=[
-      {Information:"Footer"},
-      {aboutUs:"bromo"},
-      {culture:"indonasian-culture"},
-];
-    const menuItems=['information','about us','culture'];
-    const Element=model;
-    const scrollingLink=link;
+      const scrollingObjects=[
+            {Information:"Footer"},
+            {aboutUs:"bromo"},
+            {culture:"indonasian-culture"},
+      ];
+       const menuItems=['information','about us','culture'];
+       const Element=model;
+       const scrollingLink=link;
     
-    export const headerSerch=new Element('div','header__serch','header__wraper');
-          headerSerch.appenedMoreClass();
-    export const search=new Input('input','search','header__serch');
-                 search.appenedMoreClass();
-                 search.attribute=['type','text'];
-                 search.setAttributeToElem();
-            const iconSearch=new Element('svg',"sprite-search",'header__serch'); 
-                  iconSearch.child=`<use xlink:href="icons/sprite.svg#search">`;
-                  iconSearch.appendChilds();
-                  iconSearch.appenedMoreClass();         
-                  headerSerch.child=[search,iconSearch];
-                  headerSerch.appendChilds();
+export const headerSerch=new Element('div','header__serch','header__wraper');
+
+export const search=new Input('input','search','header__serch');
+             search.attribute=['type','text'];
+             search.setAttributeToElem();
+       const titleSearch=new Element('h3','text','header__serch');
+             titleSearch.child="Search";
+             titleSearch.appendChilds();
+       const iconSearch=new Element('div',"sprite-wraper",'header__serch'); 
+             iconSearch.child=`<svg class="sprite-search"><use xlink:href="icons/sprite.svg#search"></svg>`;
+             iconSearch.appendChilds();     
+             headerSerch.child=[iconSearch,titleSearch,search,];
+             headerSerch.appendChilds();
      
 
-    export const ul=new Element('ul',['menu__ul','list']);
-   export const liArr=[];
+export const ul=new Element('ul',['menu__ul','list']);
+export const liArr=[];
           menuItems.forEach((el)=>{
-            const menuItem=new Element('li','list__item','menu__ul');
+             const menuItem=new Element('li','list__item','menu__ul');
                   menuItem.appenedMoreClass();
              const itemLink=new scrollingLink('a','list-link','list__item');
                   
@@ -54,47 +58,40 @@ import Input from "../model/Input.js";
             );
           ul.appenedMoreClass();
 
-    const nav=new Element('nav','nav','menu');
-          nav.child=ul;
-          nav.appendChilds();
-          nav.appenedMoreClass();        
-    const menu=new Element('div','menu','header__wraper');
-          menu.appenedMoreClass();
-          menu.child=nav;
-          menu.appendChilds(nav);
+       const nav=new Element('nav','nav','menu');
+             nav.child=ul;
+             nav.appendChilds();
 
-    const logoLink=new Element('a','link-log','logo');
-          logoLink.appenedMoreClass();
-          logoLink.child=`QWERy`;
-          logoLink.attribute=['href',"#"];
-          logoLink.setAttributeToElem();
-          logoLink.appendChilds();
 
-    const logo=new Element('div',"logo",'header__wraper',logoLink);
-          logo.appenedMoreClass();
-          logo.child=logoLink;
-          logo.appendChilds();
-     
-     export const body=document.querySelector('body'); 
-     export const burger=new Burger('span','burger__span','burger','body-lock',body,nav.elem);
-            burger.appenedMoreClass();
-      const burgerParent=new Element('div','burger','header__wraper');
-      burgerParent.appenedMoreClass();
-      burgerParent.child=burger;
-      burgerParent.appendChilds();     
+       const menu=new Element('div','menu','header__wraper');
+             menu.child=nav;
+             menu.appendChilds(nav);
 
-    const headerWraper=new Element('div','header__wraper','header');
-          headerWraper.appenedMoreClass();
-          headerWraper.child=[logo,menu,burgerParent,headerSerch];
-          headerWraper.appendChilds();
+       const logoLink=new Element('a','link-log','logo');
+             logoLink.child=`QWERy`;
+             logoLink.attribute=['href',"#"];
+             logoLink.setAttributeToElem();
+             logoLink.appendChilds();
 
-  export const header=new Element('header','header','.wraper','active',headerWraper);
+       const logo=new Element('div',"logo",'header__wraper',logoLink);
+             logo.child=logoLink;
+             logo.appendChilds();
 
-          header.appenedMoreClass();
-          header.appendChilds();
+export const body=document.querySelector('body'); 
+export const burger=new Burger('span','burger__span','burger','body-lock',body,nav.elem);
+       const burgerParent=new Element('div','burger','header__wraper');
+             burgerParent.child=burger;
+             burgerParent.appendChilds();     
 
-    const wraper=document.querySelector('.wraper');
-          wraper.insertAdjacentElement('afterbegin',header.elem);
+       const headerWraper=new Element('div','header__wraper','header');
+             headerWraper.child=[logo,menu,burgerParent,headerSerch];
+             headerWraper.appendChilds();
+
+export const header=new Element('header','header','.wraper','active',headerWraper);
+             header.appendChilds();
+
+       const wraper=document.querySelector('.wraper');
+             wraper.insertAdjacentElement('afterbegin',header.elem);
 
 
 

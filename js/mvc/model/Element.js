@@ -9,7 +9,16 @@ class Element{
       this.attribute=attribute;
       this.elem=document.createElement(this.title);//)
       this.classElem=classElem;
-      
+      this.appenedMoreClass=function(){
+         if(Array.isArray(this.classElem)){
+            this.classElem.forEach(el=>{
+               this.elem.classList.add(el);
+            });
+         }else{
+            this.elem.classList.add(this.classElem);
+         }
+        };
+        this.appenedMoreClass();
    }
   appendChilds(){
    if(!Array.isArray(this.child)){
@@ -32,13 +41,5 @@ class Element{
      return this.elem.setAttribute(this.attribute[0],this.attribute[1]);
    }
   }
-  appenedMoreClass(){
-   if(Array.isArray(this.classElem)){
-      this.classElem.forEach(el=>{
-         this.elem.classList.add(el);
-      });
-   }else{
-      this.elem.classList.add(this.classElem);
-   }
-  }
+  
 }
