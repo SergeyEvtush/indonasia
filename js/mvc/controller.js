@@ -1,15 +1,13 @@
 
 import {liArr,burger,headerSerch,search} from "./view/header.js";
-
+import {content,linkTitle} from "./view/content.js";
 liArr.forEach((el)=>{
    el.elem.addEventListener('click',(e)=>{
       e.preventDefault();
-      const elClass='.'+e.target.getAttribute('data-goto');
-      const elem=document.querySelector(elClass);
-      el.scrollToElement(elem);
+      const target=e.target;
+      el.scrollToElement(returnElem('data-goto',target));
    });
 });
-
 burger.elem.addEventListener('click',(e)=>{
    e.preventDefault();
    burger.toggleClass();
@@ -23,3 +21,18 @@ burger.elem.addEventListener('click',(e)=>{
 headerSerch.elem.addEventListener('click',()=>{
    search.focusToElement();
 });
+//content
+console.log(content.elem);
+linkTitle.elem.addEventListener('click',(e)=>{
+   e.preventDefault();
+   const target=e.target;
+      linkTitle.scrollToElement(returnElem('data-link',target));
+});
+
+
+//функция возвращающая элемент по атрибуту
+function returnElem(dataType,target){
+   const elClass='.'+target.getAttribute(dataType);
+   const elem=document.querySelector(elClass);
+   return elem;
+}

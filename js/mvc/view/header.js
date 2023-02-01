@@ -4,11 +4,13 @@ import model from "../model/Element.js";
 import link from "../model/Link.js";
 import Burger from "../model/burger.js";
 import Input from "../model/Input.js";
-import ElInContainer from "../model/elInContainer.js";
 
-const obj=new ElInContainer('div','header','wraper','',null,[],'testtest','div');
 
- console.log(obj);
+//!пример создания составного елемента
+// const obj=new ElInContainer('div','header','wraper','',null,[],'testtest','div');
+// const div=document.createElement('div');
+// obj.appendEelemToChild(div);
+
 
       const scrollingObjects=[
             {Information:"Footer"},
