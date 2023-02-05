@@ -3,6 +3,7 @@ import {liArr,burger,headerSerch,search} from "./view/header.js";
 import {block} from "./view/nussaTengara.js";
 import {blockBromo} from "./view/bromo.js";
 import {blockCulture} from "./view/culture.js";
+import {blockDiscover} from "./view/discover.js";
 
 
 liArr.forEach((el)=>{

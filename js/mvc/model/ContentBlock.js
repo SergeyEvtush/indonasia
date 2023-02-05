@@ -6,21 +6,30 @@ import Content from "./Content.js";
 export default
 //content
 class ContentBlock{
-      constructor(subtitleText,titleText,descriptionText){
+      constructor(subtitleText,titleText,descriptionText,mainPageTitleText=null){
             this.subtitleText=subtitleText;
+            this.mainPageTitleText=mainPageTitleText;
             this.titleText=titleText;
             this.descriptionText=descriptionText;
 
-             this.content=new Content('div',['content__title', 'title'],['title__subtitle','title-main','content__description',['title__link', 'yellow-title']]);
+            this.content=new Content('div',['content__title', 'title'],['title__subtitle','title-main','content__description',['title__link', 'yellow-title']]);
 
             this.subtitle=new Element('h3','subtitle',this.subtitleText);
             this.subtitle.appendChilds();
             this.content.child[0].child=this.subtitle;
             this.content.child[0].appendChilds();
+
             
             this.titleMain=new Element('h2','title-text',this.titleText);
             this.titleMain.appendChilds();
-            this.content.child[1].child=this.titleMain;
+            
+            if(this.mainPageTitleText===null){
+                  this.content.child[1].child=this.titleMain;
+            }else{
+                  this.mainPageTitle=new Element('h1','discover-text',this.mainPageTitleText);
+                  this.mainPageTitle.appendChilds();
+                  this.content.child[1].child=[this.mainPageTitle,this.titleMain];
+            }
             this.content.child[1].appendChilds();
             this.paragraphDescription=new Element('p','paragraph-description',this.descriptionText); 
             this.paragraphDescription.appendChilds(); 
@@ -33,8 +42,8 @@ class ContentBlock{
             this.linkTitle.setHref();
             this.linkTitle.setDataAtribute();
             this.linkTitle.appendChilds();
-            this.content.child[3].child=this.linkTitle;
-            this.content.child[3].appendChilds();  
+            this.content.child[this.content.child.length-1].child=this.linkTitle;
+            this.content.child[this.content.child.length-1].appendChilds();  
             this.linkTitle.elem.insertAdjacentHTML('afterend',`
                   <svg class="sprite-arrow rotate-yellow">
                      <use xlink:href="icons/sprite.svg#arrow_down">
