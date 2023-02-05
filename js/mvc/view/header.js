@@ -2,7 +2,7 @@
 "use strict";
 import model from "../model/Element.js";
 import link from "../model/Link.js";
-import Burger from "../model/burger.js";
+import Burger from "../model/Burger.js";
 import Input from "../model/Input.js";
 
 
@@ -21,15 +21,15 @@ import Input from "../model/Input.js";
        const Element=model;
        const scrollingLink=link;
     
-export const headerSerch=new Element('div','header__serch','header__wraper');
+export const headerSerch=new Element('div','header__serch');
 
-export const search=new Input('input','search','header__serch');
+export const search=new Input('input','search');
              search.attribute=['type','text'];
              search.setAttributeToElem();
-       const titleSearch=new Element('h3','text','header__serch');
+       const titleSearch=new Element('h3','text');
              titleSearch.child="Search";
              titleSearch.appendChilds();
-       const iconSearch=new Element('div',"sprite-wraper",'header__serch'); 
+       const iconSearch=new Element('div',"sprite-wraper"); 
              iconSearch.child=`<svg class="sprite-search"><use xlink:href="icons/sprite.svg#search"></svg>`;
              iconSearch.appendChilds();     
              headerSerch.child=[iconSearch,titleSearch,search,];
@@ -39,9 +39,9 @@ export const search=new Input('input','search','header__serch');
 export const ul=new Element('ul',['menu__ul','list']);
 export const liArr=[];
           menuItems.forEach((el)=>{
-             const menuItem=new Element('li','list__item','menu__ul');
+             const menuItem=new Element('li','list__item');
                   menuItem.appenedMoreClass();
-             const itemLink=new scrollingLink('a','list-link','list__item');
+             const itemLink=new scrollingLink('a','list-link');
                   
                   itemLink.appenedMoreClass();
                   itemLink.attribute=['href','#'];
@@ -60,36 +60,36 @@ export const liArr=[];
             );
           ul.appenedMoreClass();
 
-       const nav=new Element('nav','nav','menu');
+       const nav=new Element('nav','nav');
              nav.child=ul;
              nav.appendChilds();
 
 
-       const menu=new Element('div','menu','header__wraper');
+       const menu=new Element('div','menu');
              menu.child=nav;
              menu.appendChilds(nav);
 
-       const logoLink=new Element('a','link-log','logo');
+       const logoLink=new Element('a','link-log');
              logoLink.child=`QWERy`;
              logoLink.attribute=['href',"#"];
              logoLink.setAttributeToElem();
              logoLink.appendChilds();
 
-       const logo=new Element('div',"logo",'header__wraper',logoLink);
+       const logo=new Element('div',"logo",logoLink);
              logo.child=logoLink;
              logo.appendChilds();
 
 export const body=document.querySelector('body'); 
-export const burger=new Burger('span','burger__span','burger','body-lock',body,nav.elem);
-       const burgerParent=new Element('div','burger','header__wraper');
+export const burger=new Burger('span','burger__span','body-lock',body,nav.elem);
+       const burgerParent=new Element('div','burger');
              burgerParent.child=burger;
              burgerParent.appendChilds();     
 
-       const headerWraper=new Element('div','header__wraper','header');
+       const headerWraper=new Element('div','header__wraper');
              headerWraper.child=[logo,menu,burgerParent,headerSerch];
              headerWraper.appendChilds();
 
-export const header=new Element('header','header','.wraper','active',headerWraper);
+export const header=new Element('header','header',headerWraper);
              header.appendChilds();
 
        const wraper=document.querySelector('.wraper');

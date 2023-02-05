@@ -1,6 +1,10 @@
 
 import {liArr,burger,headerSerch,search} from "./view/header.js";
-import {content,linkTitle} from "./view/content.js";
+import {block} from "./view/nussaTengara.js";
+import {blockBromo} from "./view/bromo.js";
+import {blockCulture} from "./view/culture.js";
+
+
 liArr.forEach((el)=>{
    el.elem.addEventListener('click',(e)=>{
       e.preventDefault();
@@ -21,13 +25,6 @@ burger.elem.addEventListener('click',(e)=>{
 headerSerch.elem.addEventListener('click',()=>{
    search.focusToElement();
 });
-//content
-console.log(content.elem);
-linkTitle.elem.addEventListener('click',(e)=>{
-   e.preventDefault();
-   const target=e.target;
-      linkTitle.scrollToElement(returnElem('data-link',target));
-});
 
 
 //функция возвращающая элемент по атрибуту
@@ -36,3 +33,6 @@ function returnElem(dataType,target){
    const elem=document.querySelector(elClass);
    return elem;
 }
+
+
+  

@@ -1,10 +1,8 @@
 
 export default
 class Element{
-   constructor(title,classElem,parent,dutyClass='active',child=null,attribute=[]){
+   constructor(title,classElem,child=[],attribute=[]){
       this.title=title;
-      this.parent=parent;
-      this.dutyClass=dutyClass;
       this.child=child;
       this.attribute=attribute;
       this.elem=document.createElement(this.title);//)
@@ -36,6 +34,12 @@ class Element{
    }
   
   }
+  removeChild(){
+  this.child.forEach(el=>console.log(el));
+   }
+
+  
+  
   setAttributeToElem(){
    if(this.attribute.length>0){
      return this.elem.setAttribute(this.attribute[0],this.attribute[1]);

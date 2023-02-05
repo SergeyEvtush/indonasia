@@ -4,11 +4,12 @@ export default
 
 
 
-class HeaderLink extends Element{
-   constructor(title,classElem,dutyClass='active',child=null,attribute=[],dataAtribut,scrollingData){
-      super(title,classElem,dutyClass,child,attribute);
+class Link extends Element{
+   constructor(title,classElem,child=null,attribute=[],dataAtribut,scrollingData,valueDataAttribute){
+      super(title,classElem,child,attribute);
       this.dataAtribut=dataAtribut;
       this.scrollingData=scrollingData;
+      this.valueDataAttribute=valueDataAttribute;
    }
    addDataAttrToLink(){
       const obj=new Object();
@@ -26,8 +27,12 @@ class HeaderLink extends Element{
       });
       this.elem.setAttribute(this.dataAtribut,obj[this.child.split(' ').join('').toLowerCase()]);
   }
-
-
+setDataAtribute(){
+   this.elem.setAttribute(this.dataAtribut,this.valueDataAttribute);
+}
+setHref(){
+   this.elem.setAttribute(this.attribute[0],this.attribute[1]);
+}
    scrollToElement(el){
       
       el.scrollIntoView({
