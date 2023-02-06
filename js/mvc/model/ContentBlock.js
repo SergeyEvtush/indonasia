@@ -6,12 +6,15 @@ import Content from "./Content.js";
 export default
 //content
 class ContentBlock{
-      constructor(subtitleText,titleText,descriptionText,mainPageTitleText=null){
+      constructor(subtitleText,titleText,descriptionText,mainPageTitleText=null,arrow=`
+      <svg class="sprite-arrow rotate-yellow">
+      <use xlink:href="icons/sprite.svg#arrow_down">
+      </svg>`){
             this.subtitleText=subtitleText;
             this.mainPageTitleText=mainPageTitleText;
             this.titleText=titleText;
             this.descriptionText=descriptionText;
-
+            this.arrow=arrow;
             this.content=new Content('div',['content__title', 'title'],['title__subtitle','title-main','content__description',['title__link', 'yellow-title']]);
 
             this.subtitle=new Element('h3','subtitle',this.subtitleText);
@@ -44,10 +47,7 @@ class ContentBlock{
             this.linkTitle.appendChilds();
             this.content.child[this.content.child.length-1].child=this.linkTitle;
             this.content.child[this.content.child.length-1].appendChilds();  
-            this.linkTitle.elem.insertAdjacentHTML('afterend',`
-                  <svg class="sprite-arrow rotate-yellow">
-                     <use xlink:href="icons/sprite.svg#arrow_down">
-                  </svg>`); 
+            this.linkTitle.elem.insertAdjacentHTML('afterend',this.arrow); /** */
       }
 }
 

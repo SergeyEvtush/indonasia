@@ -1,7 +1,7 @@
 
 export default
 class Element{
-   constructor(title,classElem,child=[],attribute=[]){
+   constructor(title,classElem=[],child=[],attribute=[]){
       this.title=title;
       this.child=child;
       this.attribute=attribute;
@@ -45,5 +45,22 @@ class Element{
      return this.elem.setAttribute(this.attribute[0],this.attribute[1]);
    }
   }
-  
+  removeClass(removingClass){
+   this.elem.classList.remove(removingClass);
+  let array=[];
+  console.log(typeof(this.classElem));
+   this.classElem.forEach((el)=>{
+      if(el!=removingClass){
+         array.push(el);
+      }
+   });
+   this.classElem=[];
+   array.forEach(el=>{
+      this.classElem.push(el);
+   })
+  }
+  addClass(addingClass){
+   this.elem.classList.add(addingClass);
+   this.classElem.push(addingClass);
+  }
 }

@@ -41,5 +41,10 @@ setHref(){
          behavior:"smooth"
       });
       }
-
+changeDataAttribute(changingAttribute,valueChangingAttribute){
+  /*  console.log(this.attribute); */
+  this.dataAtribut=[];
+  this.elem.setAttribute(changingAttribute,valueChangingAttribute);
+  this.dataAtribut=[changingAttribute,valueChangingAttribute];
+}
 }

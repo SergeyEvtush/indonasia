@@ -10,5 +10,5 @@ besides enjoying Komodo tourism on Komodo Island,
 you also have to taste the marine tourism.
 The beautiful waters of Komodo will make
 you meet many travelers from other countries.`);
-console.log(content);
+
 block.append(content.content.elem);
