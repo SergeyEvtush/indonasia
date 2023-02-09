@@ -121,17 +121,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
   font-style: normal;
 }
-@-webkit-keyframes downUp {
-  0% {
-    transform: translateY(0%);
-  }
-  50% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(0%);
-  }
-}
 @keyframes downUp {
   0% {
     transform: translateY(0%);
@@ -141,17 +130,6 @@ h1, h2, h3, h4, h5, h6 {
   }
   100% {
     transform: translateY(0%);
-  }
-}
-@-webkit-keyframes rightLeft {
-  0% {
-    transform: translateX(0%) rotate(-90deg);
-  }
-  50% {
-    transform: translateX(100%) rotate(-90deg);
-  }
-  100% {
-    transform: translateX(0%) rotate(-90deg);
   }
 }
 @keyframes rightLeft {
@@ -165,17 +143,6 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateX(0%) rotate(-90deg);
   }
 }
-@-webkit-keyframes changeColor {
-  0% {
-    color: #fff;
-  }
-  50% {
-    color: #FBD784;
-  }
-  100% {
-    color: #FBD784;
-  }
-}
 @keyframes changeColor {
   0% {
     color: #fff;
@@ -185,17 +152,6 @@ h1, h2, h3, h4, h5, h6 {
   }
   100% {
     color: #FBD784;
-  }
-}
-@-webkit-keyframes changeFill {
-  0% {
-    fill: #fff;
-  }
-  50% {
-    fill: #FBD784;
-  }
-  100% {
-    fill: #FBD784;
   }
 }
 @keyframes changeFill {
@@ -361,8 +317,7 @@ a {
 }
 
 .list__item:hover .list-link {
-  -webkit-animation: changeColor 0.3s ease 0.2s forwards;
-          animation: changeColor 0.3s ease 0.2s forwards;
+  animation: changeColor 0.3s ease 0.2s forwards;
 }
 
 .header__serch {
@@ -385,13 +340,11 @@ a {
 }
 
 .header__serch:hover h3 {
-  -webkit-animation: changeColor 0.3s ease 0.2s forwards;
-          animation: changeColor 0.3s ease 0.2s forwards;
+  animation: changeColor 0.3s ease 0.2s forwards;
 }
 
 .header__serch:hover .sprite-search {
-  -webkit-animation: changeFill 0.3s ease 0.2s forwards;
-          animation: changeFill 0.3s ease 0.2s forwards;
+  animation: changeFill 0.3s ease 0.2s forwards;
 }
 
 .search {
@@ -516,8 +469,7 @@ a {
 
 .discover .title__link:hover .sprite-arrow {
   fill: #FFA343;
-  -webkit-animation: downUp 1s ease 0.2s infinite;
-          animation: downUp 1s ease 0.2s infinite;
+  animation: downUp 1s ease 0.2s infinite;
 }
 
 .follow-us__content {
@@ -644,8 +596,7 @@ a {
 
 .yellow-title:hover .rotate-yellow {
   fill: #fff;
-  -webkit-animation: rightLeft 1s ease 0.2s infinite;
-          animation: rightLeft 1s ease 0.2s infinite;
+  animation: rightLeft 1s ease 0.2s infinite;
 }
 
 .enjoy__content .content .title__link {

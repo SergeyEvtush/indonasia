@@ -1,9 +1,11 @@
 
 import {liArr,burger,headerSerch,search} from "./view/header.js";
-import {block} from "./view/nussaTengara.js";
-import {blockBromo} from "./view/bromo.js";
-import {blockCulture} from "./view/culture.js";
+import {block,content} from "./view/nussaTengara.js";
+import {blockBromo,contentBromo} from "./view/bromo.js";
+import {blockCulture,contentCulture} from "./view/culture.js";
 import {blockDiscover,contentDiscover} from "./view/discover.js";
+import ContentBlock from "./model/ContentBlock.js";
+import {VacationMenuFooter} from "./view/menuFooterItem.js";
 
 
 liArr.forEach((el)=>{
@@ -26,7 +28,7 @@ burger.elem.addEventListener('click',(e)=>{
 headerSerch.elem.addEventListener('click',()=>{
    search.focusToElement();
 });
-console.log(blockDiscover);
+
 blockDiscover.addEventListener('click',(e)=>{
                      e.preventDefault();
                      const target=e.target;
@@ -36,6 +38,24 @@ blockDiscover.addEventListener('click',(e)=>{
                      }
                
 });
+const paragraph=document.querySelectorAll('.paragraph-description');
+paragraph.forEach(el=>{
+   const text=el.innerHTML;
+   console.log();
+   el.innerHTML=text.slice(0,150)+'...';
+});
+
+
+const yellowLink=document.querySelectorAll('.link-title.yellow');
+yellowLink.forEach((link)=>{
+   link.addEventListener('click',(e)=>{
+      e.preventDefault();
+      link.classList.toggle('active');
+     
+   });
+});
+const vacation=document.querySelector('.vacation');
+vacation.append(VacationMenuFooter.elem);
 
 //функция возвращающая элемент по атрибуту
 function returnElem(dataType,target){

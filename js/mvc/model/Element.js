@@ -34,9 +34,21 @@ class Element{
    }
   
   }
-  removeChild(){
-  this.child.forEach(el=>console.log(el));
-   }
+ /*  removeChild(i){
+   if(Array.isArray(this.child)){
+      let array=[];
+      this.child.forEach((element,index) => {
+            if(element.index!=i){
+                  array.push(element);
+            }
+      });
+      this.child=[];
+      array.forEach(el=>{
+            this.child.push(el);
+      });
+}
+return this.child;
+   } */
 
   
   
@@ -48,7 +60,7 @@ class Element{
   removeClass(removingClass){
    this.elem.classList.remove(removingClass);
   let array=[];
-  console.log(typeof(this.classElem));
+  
    this.classElem.forEach((el)=>{
       if(el!=removingClass){
          array.push(el);

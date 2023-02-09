@@ -15,4 +15,23 @@ class Content extends Element{
      };
      this.appendChilds();
    }
+   removeChild(i){
+
+      console.log(this.childs);
+      if(Array.isArray(this.childs)){
+            let array=[];
+           
+            this.childs.forEach((element,index) => {
+                  if(index!=i){
+                        array.push(element);
+                  }
+            });
+            this.childs=[];
+            
+            array.forEach(el=>{
+                  this.childs.push(el);
+            });
+      }
+    return this.childs;
+   }
 }
