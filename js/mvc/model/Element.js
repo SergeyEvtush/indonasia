@@ -34,7 +34,10 @@ class Element{
    }
   
   }
- /*  removeChild(i){
+  changeChilds(){
+   this.elem.innerHTML=this.child;
+  }
+  removeChild(i){
    if(Array.isArray(this.child)){
       let array=[];
       this.child.forEach((element,index) => {
@@ -48,7 +51,7 @@ class Element{
       });
 }
 return this.child;
-   } */
+   }
 
   
   
