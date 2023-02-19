@@ -666,8 +666,12 @@ a {
 
 .slider__item .content__title {
   margin: 0 auto;
-  max-width: 700px;
   text-align: center;
+}
+
+.slider__item .title-main {
+  max-width: 75%;
+  margin: 0 auto;
 }
 
 .slider__item .title-text {
@@ -677,7 +681,12 @@ a {
 }
 
 .slider__item .content__description {
-  margin: 27px 0px 40px 0px;
+  margin: 27px auto 40px auto;
+  width: 80%;
+}
+
+.slider__item .content__description .paragraph-description {
+  max-width: 100%;
 }
 
 @media (max-width: 767px) {
